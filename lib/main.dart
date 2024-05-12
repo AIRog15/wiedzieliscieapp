@@ -8,8 +8,19 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
-void main() async {
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env");
+  await Supabase.initialize(
+    url: dotenv.env['supaUrl']!,
+    anonKey: dotenv.env['anonKey']!,
+  );
+
+  final supabase = Supabase.instance.client;
   usePathUrlStrategy();
 
   await FlutterFlowTheme.initialize();
