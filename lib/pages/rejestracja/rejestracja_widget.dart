@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'rejestracja_model.dart';
 export 'rejestracja_model.dart';
 
+import 'package:supabase/supabase.dart';
+
+
 class RejestracjaWidget extends StatefulWidget {
   const RejestracjaWidget({super.key});
 
@@ -13,9 +16,9 @@ class RejestracjaWidget extends StatefulWidget {
 }
 
 class _RejestracjaWidgetState extends State<RejestracjaWidget> {
-  late RejestracjaModel _model;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  late RejestracjaModel _model;
 
   @override
   void initState() {
@@ -35,7 +38,6 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 

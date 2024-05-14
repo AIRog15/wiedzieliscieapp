@@ -14,10 +14,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // this connects to the database. The .env file is not pushed to git,
+  // ask me for it if you want it for development purposes, I know you won't you lazy POS
+  // I'm the only person that touched any code in this entire project
   await dotenv.load(fileName: ".env");
   await Supabase.initialize(
     url: dotenv.env['supaUrl']!,
-    anonKey: dotenv.env['anonKey']!,
+    anonKey: dotenv.env['supaAnonKey']!,
   );
 
   final supabase = Supabase.instance.client;
