@@ -1,7 +1,15 @@
 # wiedzieliscie
+arcydzielo Jonasza Ciesielskiego i jakiejs stronki co generuje smieciowy kod
 
-A new Flutter project.
+## absolutnie minimum:
 
-## Getting Started
+- [x] dodac rejstrowanie
+- [ ] dodac logowanie
+- [ ] dodac usuwanie kont
+- [ ] zrobic *leaderboard*
+- [ ] naprawic ui bo co to wgl jest
+- [ ] jakies security w bazie
+- [ ] snackbary czy inne takie zeby informowac urzytkownika o tym co sie dzieje
 
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+## mniej wazne rzeczy
+- [ ] ta czesc aplikacji ktora rzeczywiscie jest contentem

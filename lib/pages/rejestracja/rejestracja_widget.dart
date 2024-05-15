@@ -1,3 +1,5 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,6 +9,7 @@ export 'rejestracja_model.dart';
 
 import 'package:supabase/supabase.dart';
 
+final supabase = Supabase.instance.client;  // connect to database
 
 class RejestracjaWidget extends StatefulWidget {
   const RejestracjaWidget({super.key});
@@ -20,19 +23,20 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
 
   late RejestracjaModel _model;
 
+  // all the input stuff
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => RejestracjaModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.nicknameController ??= TextEditingController();
+    _model.nicknameFocusNode ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController();
-    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.passwordController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
   }
 
   @override
@@ -71,6 +75,17 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(51.5, 0.0, 51.5, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      if (_model.nicknameController.text == "") {
+                        // ania makes an error msg
+                      } else if (_model.emailController.text == "") {
+                        // ania makes an error msg
+                      } else if (_model.passwordController.text == "") {
+                        // ania makes an error msg
+                      } else {
+                        final AuthResponse res = await supabase.auth.signUp(
+                          email: _model.emailController.text, password: _model.passwordController.text, data: {'display_name': _model.nicknameController.text},
+                        );
+                      }
                       context.pushNamed(
                         'rozpoczecie',
                         extra: <String, dynamic>{
@@ -128,15 +143,15 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                   ),
                 ),
               ),
-              Align(
+              Align(                                                                        // email stuff
                 alignment: const AlignmentDirectional(0.0, 0.3),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(51.5, 0.0, 51.5, 0.0),
                   child: SizedBox(
                     width: 290.0,
                     child: TextFormField(
-                      controller: _model.textController1,
-                      focusNode: _model.textFieldFocusNode1,
+                      controller: _model.emailController,
+                      focusNode: _model.emailFocusNode,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -192,20 +207,20 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                       textAlign: TextAlign.start,
                       minLines: null,
                       validator:
-                          _model.textController1Validator.asValidator(context),
+                          _model.emailValidator.asValidator(context),
                     ),
                   ),
                 ),
               ),
-              Align(
+              Align(                                                                        // nickname stuff
                 alignment: const AlignmentDirectional(0.0, 0.11),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(51.5, 0.0, 51.5, 0.0),
                   child: SizedBox(
                     width: 290.0,
                     child: TextFormField(
-                      controller: _model.textController2,
-                      focusNode: _model.textFieldFocusNode2,
+                      controller: _model.nicknameController,
+                      focusNode: _model.nicknameFocusNode,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -261,22 +276,22 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                       textAlign: TextAlign.start,
                       minLines: null,
                       validator:
-                          _model.textController2Validator.asValidator(context),
+                          _model.nicknameValidator.asValidator(context),
                     ),
                   ),
                 ),
               ),
-              Align(
+              Align(                                                                        // password stuff
                 alignment: const AlignmentDirectional(0.0, 0.5),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(51.5, 0.0, 51.5, 0.0),
                   child: SizedBox(
                     width: 290.0,
                     child: TextFormField(
-                      controller: _model.textController3,
-                      focusNode: _model.textFieldFocusNode3,
+                      controller: _model.passwordController,
+                      focusNode: _model.passwordFocusNode,
                       autofocus: true,
-                      obscureText: false,
+                      obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'hasło',
                         labelStyle:
@@ -330,7 +345,7 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                       textAlign: TextAlign.start,
                       minLines: null,
                       validator:
-                          _model.textController3Validator.asValidator(context),
+                          _model.passwordValidator.asValidator(context),
                     ),
                   ),
                 ),

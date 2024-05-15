@@ -7,17 +7,17 @@ class RejestracjaModel extends FlutterFlowModel<RejestracjaWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailValidator;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  FocusNode? nicknameFocusNode;
+  TextEditingController? nicknameController;
+  String? Function(BuildContext, String?)? nicknameValidator;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
+  FocusNode? passwordFocusNode;
+  TextEditingController? passwordController;
+  String? Function(BuildContext, String?)? passwordValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -25,13 +25,13 @@ class RejestracjaModel extends FlutterFlowModel<RejestracjaWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    nicknameFocusNode?.dispose();
+    nicknameController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    passwordFocusNode?.dispose();
+    passwordController?.dispose();
   }
 }
