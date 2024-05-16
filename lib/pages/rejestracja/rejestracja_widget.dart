@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'rejestracja_model.dart';
 export 'rejestracja_model.dart';
 
-import 'package:supabase/supabase.dart';
-
 final supabase = Supabase.instance.client;  // connect to database
 
 class RejestracjaWidget extends StatefulWidget {
@@ -82,9 +80,13 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                       } else if (_model.passwordController.text == "") {
                         // ania makes an error msg
                       } else {
-                        final AuthResponse res = await supabase.auth.signUp(
-                          email: _model.emailController.text, password: _model.passwordController.text, data: {'display_name': _model.nicknameController.text},
+                        final AuthResponse res = await supabase.auth.signUp(    // sign up with email, password, and display name
+                          email: _model.emailController.text,
+                          password: _model.passwordController.text,
+                          data: {'display_name': _model.nicknameController.text},
                         );
+                        final Session? session = res.session;
+                        final User? user = res.user;
                       }
                       context.pushNamed(
                         'rozpoczecie',

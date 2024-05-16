@@ -7,13 +7,13 @@ class LogowanieModel extends FlutterFlowModel<LogowanieWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  FocusNode? passwordFocusNode;
+  TextEditingController? passwordController;
+  String? Function(BuildContext, String?)? passwordValidator;
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -21,10 +21,10 @@ class LogowanieModel extends FlutterFlowModel<LogowanieWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    passwordFocusNode?.dispose();
+    passwordController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
   }
 }

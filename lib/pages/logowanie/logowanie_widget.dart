@@ -1,9 +1,13 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'logowanie_model.dart';
 export 'logowanie_model.dart';
+
+final supabase = Supabase.instance.client;  // connect to database
 
 class LogowanieWidget extends StatefulWidget {
   const LogowanieWidget({super.key});
@@ -22,11 +26,11 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
     super.initState();
     _model = createModel(context, () => LogowanieModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.passwordController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
   }
 
   @override
@@ -55,6 +59,12 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(51.5, 0.0, 51.5, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      final AuthResponse res = await supabase.auth.signInWithPassword(    // sign in with email and password
+                        email: _model.emailController.text,
+                        password: _model.passwordController.text,
+                      );
+                      final Session? session = res.session;
+                      final User? user = res.user;
                       context.pushNamed(
                         'profil',
                         extra: <String, dynamic>{
@@ -98,10 +108,10 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                   child: SizedBox(
                     width: 290.0,
                     child: TextFormField(
-                      controller: _model.textController1,
-                      focusNode: _model.textFieldFocusNode1,
+                      controller: _model.passwordController,
+                      focusNode: _model.passwordFocusNode,
                       autofocus: true,
-                      obscureText: false,
+                      obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'hasło',
                         labelStyle:
@@ -155,7 +165,7 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                       textAlign: TextAlign.start,
                       minLines: null,
                       validator:
-                          _model.textController1Validator.asValidator(context),
+                          _model.passwordValidator.asValidator(context),
                     ),
                   ),
                 ),
@@ -167,8 +177,8 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                   child: SizedBox(
                     width: 290.0,
                     child: TextFormField(
-                      controller: _model.textController2,
-                      focusNode: _model.textFieldFocusNode2,
+                      controller: _model.emailController,
+                      focusNode: _model.emailFocusNode,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -224,7 +234,7 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                       textAlign: TextAlign.start,
                       minLines: null,
                       validator:
-                          _model.textController2Validator.asValidator(context),
+                          _model.emailValidator.asValidator(context),
                     ),
                   ),
                 ),
