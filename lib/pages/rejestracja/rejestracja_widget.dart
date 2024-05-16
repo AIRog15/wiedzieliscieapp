@@ -74,11 +74,11 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       if (_model.nicknameController.text == "") {
-                        // ania makes an error msg
+                        // ania makes an error msg and cancels transition
                       } else if (_model.emailController.text == "") {
-                        // ania makes an error msg
+                        // ania makes an error msg and cancels transition
                       } else if (_model.passwordController.text == "") {
-                        // ania makes an error msg
+                        // ania makes an error msg and cancels transition
                       } else {
                         final AuthResponse res = await supabase.auth.signUp(    // sign up with email, password, and display name
                           email: _model.emailController.text,

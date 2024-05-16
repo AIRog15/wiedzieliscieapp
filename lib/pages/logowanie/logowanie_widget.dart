@@ -59,12 +59,18 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(51.5, 0.0, 51.5, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      final AuthResponse res = await supabase.auth.signInWithPassword(    // sign in with email and password
-                        email: _model.emailController.text,
-                        password: _model.passwordController.text,
-                      );
-                      final Session? session = res.session;
-                      final User? user = res.user;
+                      if (_model.emailController.text == "") {
+                        // ania makes an error msg and cancels transition
+                      } else if (_model.passwordController.text == "") {
+                        // ania makes an error msg and cancels transition
+                      } else {                                                              // if username and password are "correct" (for now it just checks if they are not empty)
+                        final AuthResponse res = await supabase.auth.signInWithPassword(    // sign in with email and password only here
+                          email: _model.emailController.text,
+                          password: _model.passwordController.text,
+                        );
+                        final Session? session = res.session;
+                        final User? user = res.user;
+                      }
                       context.pushNamed(
                         'profil',
                         extra: <String, dynamic>{

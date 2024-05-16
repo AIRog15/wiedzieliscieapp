@@ -12,4 +12,5 @@ arcydzielo Jonasza Ciesielskiego i jakiejs stronki co generuje smieciowy kod
 - [ ] snackbary czy inne takie zeby informowac urzytkownika o tym co sie dzieje
 
 ## mniej wazne rzeczy
+- [ ] kontrola nad swoim kontem (wyloguj, wybierz pfp, zobacz ile masz punktow)
 - [ ] ta czesc aplikacji ktora rzeczywiscie jest contentem
