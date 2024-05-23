@@ -3,11 +3,13 @@ arcydzielo Jonasza Ciesielskiego i jakiejs stronki co generuje smieciowy kod
 
 ## absolutnie minimum:
 
+- [ ] OKOMENTOWAC KOD
 - [x] dodac rejstrowanie
-- [ ] dodac logowanie
+- [x] dodac logowanie
+- [x] basic strona konta
 - [ ] dodac usuwanie kont
 - [ ] zrobic *leaderboard*
-- [ ] naprawic ui bo co to wgl jest
+- [ ] naprawic ui bo co to wgl jest (snackbar rounded z jakiegos powodu, lisc skacze po ekranie etc.)
 - [ ] jakies security w bazie
 - [ ] snackbary czy inne takie zeby informowac urzytkownika o tym co sie dzieje
 

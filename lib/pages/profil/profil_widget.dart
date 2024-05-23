@@ -1,8 +1,12 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'profil_model.dart';
 export 'profil_model.dart';
+
+final supabase = Supabase.instance.client;  // connect to database
 
 class ProfilWidget extends StatefulWidget {
   const ProfilWidget({super.key});
@@ -15,6 +19,8 @@ class _ProfilWidgetState extends State<ProfilWidget> {
   late ProfilModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final User? user = supabase.auth.currentUser; // get logged in users info if user not null
+
 
   @override
   void initState() {
@@ -92,7 +98,7 @@ class _ProfilWidgetState extends State<ProfilWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.01, -0.09),
                 child: Text(
-                  'nazwa_użytkownika',
+                  user?.userMetadata?['display_name'],  // if user exists and session has metadata, get the display name
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 20.0,
@@ -103,7 +109,7 @@ class _ProfilWidgetState extends State<ProfilWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  'Hello World',
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // i swear to god jesli nie wiecie co to jest lorem ipsum to ja juz tak nie moge dalej pracowac
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         letterSpacing: 0.0,

@@ -70,6 +70,7 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                         );
                         final Session? session = res.session;
                         final User? user = res.user;
+                        // transition only happens here
                       }
                       context.pushNamed(
                         'profil',
