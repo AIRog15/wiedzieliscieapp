@@ -1,5 +1,5 @@
 # wiedzieliscie
-arcydzielo Jonasza Ciesielskiego i jakiejs stronki co generuje smieciowy kod
+arcydzielo Jonasza Ciesielskiego (jak wskazuje niezmienione przez nikogo innego README) i jakiejs stronki co generuje smieciowy kod
 
 ## absolutnie minimum:
 
