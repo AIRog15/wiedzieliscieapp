@@ -12,6 +12,9 @@ arcydzielo Jonasza Ciesielskiego (jak wskazuje niezmienione przez nikogo innego 
 - [ ] naprawic ui bo co to wgl jest (snackbar rounded z jakiegos powodu, lisc skacze po ekranie etc.)
 - [ ] jakies security w bazie
 - [ ] snackbary czy inne takie zeby informowac urzytkownika o tym co sie dzieje
+- [ ] odznaki, bo to dead-end jest - dac cos zeby tam sie dalo dojsc
+- [ ] ranking na stronie z backendem polaczyc
+      
 
 ## mniej wazne rzeczy
 - [ ] kontrola nad swoim kontem (wyloguj, wybierz pfp, zobacz ile masz punktow)
