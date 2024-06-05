@@ -14,6 +14,7 @@ arcydzielo Jonasza Ciesielskiego (jak wskazuje niezmienione przez nikogo innego 
 - [ ] snackbary czy inne takie zeby informowac urzytkownika o tym co sie dzieje
 - [ ] odznaki, bo to dead-end jest - dac cos zeby tam sie dalo dojsc
 - [ ] ranking na stronie z backendem polaczyc
+- [ ] przejśćie do odznak 
       
 
 ## mniej wazne rzeczy
