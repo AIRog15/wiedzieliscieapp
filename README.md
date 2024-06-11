@@ -3,13 +3,13 @@ arcydzielo Jonasza Ciesielskiego (jak wskazuje niezmienione przez nikogo innego 
 
 ## absolutnie minimum:
 
-- [ ] OKOMENTOWAC KOD
+- [x] OKOMENTOWAC KOD
 - [x] dodac rejstrowanie
 - [x] dodac logowanie
 - [x] basic strona konta
-- [ ] dodac usuwanie kont
+- [x] dodac usuwanie kont
 - [ ] zrobic *leaderboard*
-- [ ] naprawic ui bo co to wgl jest (snackbar rounded z jakiegos powodu, lisc skacze po ekranie etc.)
+- [x] naprawic ui bo co to wgl jest (snackbar rounded z jakiegos powodu, lisc skacze po ekranie etc.)
 - [ ] jakies security w bazie
 - [ ] snackbary czy inne takie zeby informowac urzytkownika o tym co sie dzieje
 - [ ] odznaki, bo to dead-end jest - dac cos zeby tam sie dalo dojsc
