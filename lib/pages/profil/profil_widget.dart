@@ -1,12 +1,11 @@
-import 'package:supabase_flutter/supabase_flutter.dart';
-
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'profil_model.dart';
+import 'package:supabase_flutter/supabase_flutter.dart'; // Import the Supabase package
 export 'profil_model.dart';
 
-final supabase = Supabase.instance.client;  // connect to database
+final supabase = Supabase.instance.client; // Define the Supabase client
 
 class ProfilWidget extends StatefulWidget {
   const ProfilWidget({super.key});
@@ -19,8 +18,6 @@ class _ProfilWidgetState extends State<ProfilWidget> {
   late ProfilModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final User? user = supabase.auth.currentUser; // get logged in users info if user not null
-
 
   @override
   void initState() {
@@ -61,10 +58,10 @@ class _ProfilWidgetState extends State<ProfilWidget> {
                     child: Text(
                       'Twoje konto',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            fontSize: 30.0,
-                            letterSpacing: 0.0,
-                          ),
+                        fontFamily: 'Readex Pro',
+                        fontSize: 30.0,
+                        letterSpacing: 0.0,
+                      ),
                     ),
                   ),
                 ),
@@ -98,22 +95,52 @@ class _ProfilWidgetState extends State<ProfilWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.01, -0.09),
                 child: Text(
-                  user?.userMetadata?['display_name'],  // if user exists and session has metadata, get the display name
+                  'nazwa_użytkownika',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 20.0,
-                        letterSpacing: 0.0,
-                      ),
+                    fontFamily: 'Readex Pro',
+                    fontSize: 20.0,
+                    letterSpacing: 0.0,
+                  ),
                 ),
               ),
               Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // i swear to god jesli nie wiecie co to jest lorem ipsum to ja juz tak nie moge dalej pracowac
+                  'Hello World',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        letterSpacing: 0.0,
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0.0,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 56.0), // Adjusted bottom padding to 26.0
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        await supabase.auth.signOut();
+                        // Optionally navigate to the login page or show a message
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF0A0303), // Black color
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
                       ),
+                      child: Text(
+                        'Wyloguj się',
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

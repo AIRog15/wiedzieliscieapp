@@ -265,10 +265,13 @@ class _LogowanieWidgetState extends State<LogowanieWidget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
+                  child:Opacity(
+                    opacity: 0.3,
                   child: Image.asset(
                     'assets/images/ezgif.com-optimize_(1).gif',
                     height: 290.0,
                     fit: BoxFit.cover,
+                  ),
                   ),
                 ),
               ),
