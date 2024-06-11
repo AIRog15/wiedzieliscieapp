@@ -60,10 +60,13 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
+                  child:Opacity(
+                    opacity: 0.3,
                   child: Image.asset(
                     'assets/images/ezgif.com-optimize_(1).gif',
                     height: 290.0,
                     fit: BoxFit.cover,
+                  ),
                   ),
                 ),
               ),
@@ -94,7 +97,7 @@ class _RejestracjaWidgetState extends State<RejestracjaWidget> {
                           kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 2000),
+                            duration: Duration(milliseconds: 1500),
                           ),
                         },
                       );

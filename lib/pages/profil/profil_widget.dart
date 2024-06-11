@@ -122,7 +122,18 @@ class _ProfilWidgetState extends State<ProfilWidget> {
                     child: ElevatedButton(
                       onPressed: () async {
                         await supabase.auth.signOut();
+                        context.pushNamed(
+                          'homepage',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: const TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 1500),
+                            ),
+                          },
+                        );
                         // Optionally navigate to the login page or show a message
+
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF0A0303), // Black color
